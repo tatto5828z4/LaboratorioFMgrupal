@@ -1,5 +1,6 @@
 create database FilmMagic;
 use FilmMagic;
+-- drop database filmmagic;
 
 create table Empleado
 (
@@ -11,6 +12,7 @@ create table Empleado
   Correo_Empleado varchar(80) not null,
   Genero_Empleado varchar(1) not null,
   Estado_Empleado varchar(1) not null
+  
 )Engine= InnoDB, default char set= latin1;
 
 create table Cliente
@@ -21,9 +23,14 @@ create table Cliente
   Apellido_Cliente varchar(50) not null,
   Telefono_Cliente varchar(10) not null,
   Correo_Cliente varchar(80) not null,
-  
+  -- nuevo
+  Cargo_Cliente float,
+  Estado_Tarjeta_Cliente char(1) not null,
+
   Codigo_Empleado int not null,
   foreign key (Codigo_Empleado) references Empleado(Codigo_Empleado)
+  
+   
 )Engine= InnoDB, default char set= latin1;
 
 create table Autor
@@ -56,6 +63,8 @@ create table Renta
   
   foreign key(Codigo_Cliente) references Cliente(Codigo_Cliente),
   foreign key(Codigo_Producto) references Producto(Codigo_Producto)
+  
+  
 )Engine= InnoDB, default char set= latin1;
 
 create table Factura
@@ -72,5 +81,16 @@ create table Factura
   foreign key(Codigo_Renta) references Renta(Codigo_Renta)
 )Engine= InnoDB, default char set= latin1;
 
-select *from renta;
+-- select *from renta;
 
+
+create table Devolucion(
+	ID_Devolucion varchar(15) primary key,
+    -- foranea 
+	Codigo_Renta int,
+    
+    Fecha_Actual date,
+    Cargo float,
+    
+    foreign key (Codigo_Renta)  references Renta(Codigo_Renta)
+)engine=InnoDB;

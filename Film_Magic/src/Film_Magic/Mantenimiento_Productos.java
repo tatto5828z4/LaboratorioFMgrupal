@@ -218,7 +218,7 @@ public class Mantenimiento_Productos extends javax.swing.JInternalFrame
         
                 try        
         {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","Langas798");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","admin");
             PreparedStatement pst = cn.prepareStatement("insert into Producto values(?,?,?,?,?,?)");
             
             pst.setString(1, txt_Codigo.getText().trim());
@@ -254,7 +254,7 @@ public class Mantenimiento_Productos extends javax.swing.JInternalFrame
         {
             String ID = txt_Buscar.getText().trim();
             
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "Langas798");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
             PreparedStatement pst = cn.prepareStatement("update Producto set Codigo_Producto = ?,Nombre_Producto = ?, Precio_Producto = ?,Tipo_Producto = ?,Existencias_Producto = ?,Codigo_Autor = ? where Codigo_Producto = " + ID);
             
             pst.setString(1, txt_Codigo.getText().trim());
@@ -278,7 +278,7 @@ public class Mantenimiento_Productos extends javax.swing.JInternalFrame
         
             try
             {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "Langas798");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
             PreparedStatement pst = cn.prepareStatement("select * from Producto where Codigo_Producto = ?");
             pst.setString(1, txt_Buscar.getText().trim());
             
@@ -307,7 +307,7 @@ public class Mantenimiento_Productos extends javax.swing.JInternalFrame
         
                 try 
         {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "Langas798");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
             PreparedStatement pst = cn.prepareStatement("delete from Producto where Codigo_Producto = ?");
             
             pst.setString(1, txt_Buscar.getText().trim());
