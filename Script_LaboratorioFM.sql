@@ -71,6 +71,3 @@ create table Factura
   foreign key(Codigo_Cliente) references Cliente(Codigo_Cliente),
   foreign key(Codigo_Renta) references Renta(Codigo_Renta)
 )Engine= InnoDB, default char set= latin1;
-
-select *from renta;
-
