@@ -222,7 +222,7 @@ public class Factura extends javax.swing.JInternalFrame {
         
         try        
         {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","Langas798");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","admin");
             PreparedStatement pst = cn.prepareStatement("insert into Factura values(?,?,?,?,?,?)");
             
           
@@ -252,7 +252,7 @@ public class Factura extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
             try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "Langas798");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
             PreparedStatement pst = cn.prepareStatement("select * from Factura where Codigo_Factura = ?");
             pst.setString(1, txt_Buscar.getText().trim());
             
@@ -284,7 +284,7 @@ public class Factura extends javax.swing.JInternalFrame {
         try {
             String ID = txt_Buscar.getText().trim();
             
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "Langas798");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
             PreparedStatement pst = cn.prepareStatement("update Factura set Codigo_Factura = ?,Fecha = ?, Forma_Pago = ?,Total = ?,Codigo_Cliente = ? where Codigo_Cliente = " + ID);
             
             pst.setString(1, txt_Codigo_Factura.getText().trim());
@@ -308,7 +308,7 @@ public class Factura extends javax.swing.JInternalFrame {
         
         try 
         {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "Langas798");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
             PreparedStatement pst = cn.prepareStatement("delete from Factura where Codigo_Factura = ?");
             
             pst.setString(1, txt_Buscar.getText().trim());

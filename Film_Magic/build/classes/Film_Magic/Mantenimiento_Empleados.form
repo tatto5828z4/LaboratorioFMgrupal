@@ -41,16 +41,14 @@
                               <Component id="txt_Correo" max="32767" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel3" max="32767" attributes="0"/>
-                                  <Component id="jLabel2" max="32767" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel3" max="32767" attributes="0"/>
+                              <Component id="jLabel2" max="32767" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <Component id="txt_Telefono" alignment="0" max="32767" attributes="0"/>
                               <Component id="txt_Apellido" alignment="0" max="32767" attributes="0"/>
                               <Component id="txt_Codigo" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="txt_Nombre" pref="109" max="32767" attributes="0"/>
+                          <Component id="txt_Nombre" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
