@@ -194,7 +194,11 @@ public class Mantenimiento_Autor extends javax.swing.JInternalFrame {
         
         try 
         {
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("delete from Autor where Codigo_Autor = ?");
             
             pst.setString(1, txt_Buscar.getText().trim());
@@ -220,7 +224,11 @@ public class Mantenimiento_Autor extends javax.swing.JInternalFrame {
         
                     try
             {
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("select * from Autor where Codigo_Autor = ?");
             pst.setString(1, txt_Buscar.getText().trim());
             
@@ -246,7 +254,11 @@ public class Mantenimiento_Autor extends javax.swing.JInternalFrame {
         
                 try        
         {
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("insert into Autor values(?,?,?)");
             
             pst.setString(1, txt_Codigo.getText().trim());
@@ -272,7 +284,11 @@ public class Mantenimiento_Autor extends javax.swing.JInternalFrame {
         {
             String ID = txt_Buscar.getText().trim();
             
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("update Autor set Codigo_Autor = ?,Nombre_Autor = ?, Apellido_Autor = ? where Codigo_Autor = " + ID);
             
             pst.setString(1, txt_Codigo.getText().trim());

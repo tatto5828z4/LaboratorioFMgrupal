@@ -210,7 +210,11 @@ public class Renta extends javax.swing.JInternalFrame {
         
         try        
         {
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("insert into Renta values(?,?,?,?,?)");
             
             pst.setString(1, txt_Codigo_Renta.getText().trim());
@@ -239,7 +243,11 @@ public class Renta extends javax.swing.JInternalFrame {
     try {
             String ID = txt_Buscar.getText().trim();
             
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("update Renta set Codigo_Renta = ?,Fecha_Renta = ?, Fecha_Vencimiento = ?,Codigo_Cliente = ?,Codigo_Producto = ? where Codigo_Renta = " + ID);
             
             pst.setString(1, txt_Codigo_Renta.getText().trim());
@@ -261,7 +269,11 @@ public class Renta extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
                 try{
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("select * from Renta where Codigo_Renta = ?");
             pst.setString(1, txt_Buscar.getText().trim());
             
@@ -289,7 +301,11 @@ public class Renta extends javax.swing.JInternalFrame {
         
         try 
         {
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("delete from Renta where Codigo_Renta = ?");
             
             pst.setString(1, txt_Buscar.getText().trim());

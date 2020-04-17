@@ -80,6 +80,7 @@ create table Factura
   foreign key(Codigo_Cliente) references Cliente(Codigo_Cliente),
   foreign key(Codigo_Renta) references Renta(Codigo_Renta)
 )Engine= InnoDB, default char set= latin1;
+<<<<<<< HEAD
 
 -- select *from renta;
 
@@ -94,3 +95,5 @@ create table Devolucion(
     
     foreign key (Codigo_Renta)  references Renta(Codigo_Renta)
 )engine=InnoDB;
+=======
+>>>>>>> RamaProcesos

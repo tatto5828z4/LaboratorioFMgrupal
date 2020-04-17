@@ -300,7 +300,11 @@ public class Mantenimiento_Empleados extends javax.swing.JInternalFrame {
         
         try        
         {
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("insert into Empleado values(?,?,?,?,?,?,?,?)");
             
             pst.setString(1, txt_Codigo.getText().trim());
@@ -339,7 +343,11 @@ public class Mantenimiento_Empleados extends javax.swing.JInternalFrame {
                 try {
             String ID = txt_Buscar.getText().trim();
             
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("update Empleado set Codigo_Empleado = ?,DPI_Empleado = ?, Nombre_Empleado = ?,Apellido_Empleado = ?,Telefono_Empleado = ?,Correo_Empleado = ?,Genero_Empleado =?,Estado_Empleado =? where Codigo_Empleado = " + ID);
             
             pst.setString(1, txt_Codigo.getText().trim());
@@ -364,7 +372,11 @@ public class Mantenimiento_Empleados extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
         try{
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("select * from Empleado where Codigo_Empleado = ?");
             pst.setString(1, txt_Buscar.getText().trim());
             
@@ -395,7 +407,11 @@ public class Mantenimiento_Empleados extends javax.swing.JInternalFrame {
         
         try 
         {
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("delete from Empleado where Codigo_Empleado = ?");
             
             pst.setString(1, txt_Buscar.getText().trim());

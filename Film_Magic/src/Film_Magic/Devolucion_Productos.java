@@ -347,7 +347,11 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
         //buscar Datos
 
         try {
+<<<<<<< HEAD
             Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "admin");
+=======
+            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst= cn.prepareStatement("select * from Renta where Codigo_Renta= ?");
 
             pst.setString(1, txt_buscar.getText().trim());
@@ -371,7 +375,11 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //insertar
         try {
+<<<<<<< HEAD
             Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "admin");
+=======
+            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst= cn.prepareStatement("insert into Devolucion values(?,?,?,?)");
 
             pst.setString(1, txt_iddevolucion.getText().trim());
@@ -396,7 +404,11 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
         try {
             String ID= txt_buscar.getText().trim();
 
+<<<<<<< HEAD
             Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "admin");
+=======
+            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst= cn.prepareStatement("update Devolucion set ID_Devolucion=?, Codigo_Renta =?, Fecha_Actual=?, Cargo=? where ID_Devolucion= "+ID);
 
             
@@ -416,7 +428,11 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //Eliminar
         try {
+<<<<<<< HEAD
             Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "admin");
+=======
+            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst= cn.prepareStatement("delete from Devolucion where ID_Devolucion=?");
 
             pst.setString(1, txt_buscar.getText().trim());
@@ -436,7 +452,11 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
         //buscar Datos
 
         try {
+<<<<<<< HEAD
             Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "admin");
+=======
+            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst= cn.prepareStatement("select * from Devolucion where ID_Devolucion= ?");
 
             pst.setString(1, txt_buscardevolucion.getText().trim());
@@ -466,7 +486,11 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
                 //JOptionPane.showMessageDialog(null, "Las fechas no son iguales");
                 
                 
+<<<<<<< HEAD
                 Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "admin");
+=======
+                Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "jorgito5828H");
+>>>>>>> RamaProcesos
                 PreparedStatement pst= cn.prepareStatement("select Cargo_Cliente from Cliente where Codigo_Cliente=?");
                 PreparedStatement ps= cn.prepareStatement("select Nombre_Cliente from Cliente where Codigo_Cliente=?");
 

@@ -24,7 +24,7 @@ public class Factura extends javax.swing.JInternalFrame {
     
     public Factura() {
         initComponents();
-        jLabel_Total.setText(Float.toString(FilmMagic_Principal.valor));
+        jLabel_Cargo.setText(Float.toString(FilmMagic_Principal.valor));        
     }
     
 
@@ -55,7 +55,10 @@ public class Factura extends javax.swing.JInternalFrame {
         label_status = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txt_Codigo_Cliente = new javax.swing.JTextField();
-        jLabel_Total = new javax.swing.JLabel();
+        jLabel_Cargo = new javax.swing.JLabel();
+        jLabel_cargo = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel_verifica = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
@@ -103,6 +106,19 @@ public class Factura extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Codigo Renta");
 
+        txt_Codigo_Cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Codigo_ClienteActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Verificar Cargos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,47 +134,54 @@ public class Factura extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(txt_Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_Forma_Pago, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txt_Codigo_Factura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4)))
-                            .addComponent(jLabel_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(73, 73, 73)
-                                .addComponent(txt_Codigo_Renta, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(192, 192, 192)
-                                .addComponent(jButton_Registrar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton_Modificar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
+                                        .addGap(6, 6, 6)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
+                                            .addComponent(txt_Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_Forma_Pago, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txt_Codigo_Factura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel4)))
+                                    .addComponent(jLabel_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(73, 73, 73)
+                                        .addComponent(txt_Codigo_Renta, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(192, 192, 192)
+                                        .addComponent(jButton_Registrar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton_Modificar))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(67, 67, 67)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel7)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(4, 4, 4)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(6, 6, 6)
+                                                        .addComponent(txt_Codigo_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(jLabel5)))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(146, 146, 146)
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(txt_Codigo_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel5)))))
+                                                .addGap(89, 89, 89)
+                                                .addComponent(jButton_Eliminar))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton_Buscar))))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(146, 146, 146)
-                                .addComponent(jLabel6)
+                                .addComponent(jLabel_cargo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(89, 89, 89)
-                                        .addComponent(jButton_Eliminar))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton_Buscar)))))
+                                .addComponent(jButton1))
+                            .addComponent(jLabel_verifica))
                         .addGap(0, 134, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -210,7 +233,13 @@ public class Factura extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel_cargo)
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel_verifica)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
@@ -222,7 +251,11 @@ public class Factura extends javax.swing.JInternalFrame {
         
         try        
         {
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("insert into Factura values(?,?,?,?,?,?)");
             
           
@@ -230,7 +263,7 @@ public class Factura extends javax.swing.JInternalFrame {
             pst.setString(1, txt_Codigo_Factura.getText().trim());
             pst.setString(2, txt_Fecha.getText().trim());
             pst.setString(3, txt_Forma_Pago.getText().trim());
-            pst.setString(4, jLabel_Total.getText().trim());
+            pst.setString(4, jLabel_Cargo.getText().trim());
             pst.setString(5, txt_Codigo_Cliente.getText().trim());
             pst.setString(6, txt_Codigo_Renta.getText().trim());
             pst.executeUpdate();
@@ -252,7 +285,11 @@ public class Factura extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
             try{
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("select * from Factura where Codigo_Factura = ?");
             pst.setString(1, txt_Buscar.getText().trim());
             
@@ -263,7 +300,7 @@ public class Factura extends javax.swing.JInternalFrame {
                 txt_Codigo_Factura.setText(rs.getString("Codigo_Factura"));
                 txt_Fecha.setText(rs.getString("Fecha"));
                 txt_Forma_Pago.setText(rs.getString("Forma_Pago"));
-                jLabel_Total.setText(rs.getString("Total"));
+                jLabel_Cargo.setText(rs.getString("Total"));
                 txt_Codigo_Cliente.setText(rs.getString("Codigo_Cliente"));
                 txt_Codigo_Renta.setText(rs.getString("Codigo_Renta"));
             } else 
@@ -284,13 +321,17 @@ public class Factura extends javax.swing.JInternalFrame {
         try {
             String ID = txt_Buscar.getText().trim();
             
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("update Factura set Codigo_Factura = ?,Fecha = ?, Forma_Pago = ?,Total = ?,Codigo_Cliente = ? where Codigo_Cliente = " + ID);
             
             pst.setString(1, txt_Codigo_Factura.getText().trim());
             pst.setString(2, txt_Fecha.getText().trim());
             pst.setString(3, txt_Forma_Pago.getText().trim());
-            pst.setString(4, jLabel_Total.getText().trim());
+            pst.setString(4, jLabel_Cargo.getText().trim());
             pst.setString(5, txt_Codigo_Cliente.getText().trim());
             pst.setString(5, txt_Codigo_Renta.getText().trim());
             pst.executeUpdate();
@@ -308,7 +349,11 @@ public class Factura extends javax.swing.JInternalFrame {
         
         try 
         {
+<<<<<<< HEAD
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
+=======
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
+>>>>>>> RamaProcesos
             PreparedStatement pst = cn.prepareStatement("delete from Factura where Codigo_Factura = ?");
             
             pst.setString(1, txt_Buscar.getText().trim());
@@ -317,7 +362,7 @@ public class Factura extends javax.swing.JInternalFrame {
             txt_Codigo_Factura.setText("");
             txt_Fecha.setText("");
             txt_Forma_Pago.setText("");
-            jLabel_Total.setText("");
+            jLabel_Cargo.setText("");
             txt_Codigo_Cliente.setText("");
             txt_Codigo_Renta.setText("");
             
@@ -327,8 +372,43 @@ public class Factura extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButton_EliminarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String verifica = new String();
+        float total12 =0;
+        float suma =0;
+        try
+            {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
+            PreparedStatement pst = cn.prepareStatement("select * from Cliente where Codigo_Cliente = ?");
+            pst.setString(1, txt_Codigo_Cliente.getText().trim());
+            
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next())
+            {
+                verifica = (rs.getString("Cargo_Cliente"));
+                jLabel_verifica.setText("El cliente tiene el siguiente cargo: " +verifica);
+                suma = Float.parseFloat(verifica);
+                total12 = (FilmMagic_Principal.valor) + suma;
+                jLabel_Cargo.setText(Float.toString(total12));
+            } else 
+            {
+                JOptionPane.showMessageDialog(null, "Cliente no registrado.");
+            }
+            
+        }catch (Exception e){
+            
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txt_Codigo_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Codigo_ClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_Codigo_ClienteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton_Buscar;
     private javax.swing.JButton jButton_Eliminar;
     private javax.swing.JButton jButton_Modificar;
@@ -340,7 +420,9 @@ public class Factura extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel_Total;
+    private javax.swing.JLabel jLabel_Cargo;
+    private javax.swing.JLabel jLabel_cargo;
+    private javax.swing.JLabel jLabel_verifica;
     private javax.swing.JLabel label_status;
     private javax.swing.JTextField txt_Buscar;
     private javax.swing.JTextField txt_Codigo_Cliente;

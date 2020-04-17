@@ -53,10 +53,14 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="txt_Codigo_Cliente" min="-2" pref="94" max="-2" attributes="0"/>
                                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                   </Group>
+=======
+                                  <Component id="txt_Codigo_Cliente" alignment="0" min="-2" pref="94" max="-2" attributes="0"/>
+>>>>>>> RamaProcesos
                                   <Component id="jLabel2" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
                           </Group>

@@ -45,6 +45,7 @@
               <Component id="jLabel1" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="35" max="32767" attributes="0"/>
@@ -54,6 +55,12 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
+=======
+                  <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+>>>>>>> RamaProcesos
           </Group>
       </Group>
     </DimensionLayout>
@@ -97,7 +104,11 @@
                       <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="txt_fecha" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace pref="28" max="32767" attributes="0"/>
+=======
+                  <EmptySpace pref="54" max="32767" attributes="0"/>
+>>>>>>> RamaProcesos
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -121,7 +132,11 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <EmptySpace pref="87" max="32767" attributes="0"/>
+=======
+                  <EmptySpace pref="112" max="32767" attributes="0"/>
+>>>>>>> RamaProcesos
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="txt_fecha" min="-2" max="-2" attributes="0"/>
