@@ -58,6 +58,8 @@ public class Mantenimiento_Clientes extends javax.swing.JInternalFrame {
         txt_Codigo_Empleado = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txt_cargo = new javax.swing.JTextField();
+        txt_Bono = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
@@ -124,6 +126,14 @@ public class Mantenimiento_Clientes extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Cargo Cliente:");
 
+        txt_Bono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_BonoActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Bono ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -160,6 +170,11 @@ public class Mantenimiento_Clientes extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel10)
                                         .addComponent(jLabel8)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(txt_Bono)
+                                                .addGap(12, 12, 12))
+                                            .addComponent(jLabel11))
                                         .addComponent(jLabel9)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,13 +241,19 @@ public class Mantenimiento_Clientes extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txt_Codigo_Empleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jButton4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label_status, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jButton4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label_status, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_Bono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -251,16 +272,11 @@ public class Mantenimiento_Clientes extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        try        
-        {
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","jorgito5828H");
->>>>>>> RamaProcesos
-            PreparedStatement pst = cn.prepareStatement("insert into Cliente values(?,?,?,?,?,?,?,?,?)");
-            
+
+        try {
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
+            PreparedStatement pst = cn.prepareStatement("insert into Cliente values(?,?,?,?,?,?,?,?,?,?)");
+
             pst.setString(1, txt_Codigo.getText().trim());
             pst.setString(2, txt_DPI.getText().trim());
             pst.setString(3, txt_Nombre.getText().trim());
@@ -270,9 +286,9 @@ public class Mantenimiento_Clientes extends javax.swing.JInternalFrame {
             pst.setString(7, txt_cargo.getText().trim());
             pst.setString(8, txt_estadotarjeta.getText().trim());
             pst.setString(9, txt_Codigo_Empleado.getText().trim());
-
+            pst.setString(10, txt_Bono.getText().trim());
             pst.executeUpdate();
-            
+
             txt_Codigo.setText("");
             txt_DPI.setText("");
             txt_Nombre.setText("");
@@ -282,12 +298,12 @@ public class Mantenimiento_Clientes extends javax.swing.JInternalFrame {
             txt_cargo.setText("");
             txt_estadotarjeta.setText("");
             txt_Codigo_Empleado.setText("");
-            
+            txt_Bono.setText("");
+
             label_status.setText("Registrado.");
-            
-        }catch (Exception e)
-        {
-            
+
+        } catch (Exception e) {
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -297,94 +313,85 @@ public class Mantenimiento_Clientes extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-        try
-        {
+
+        try {
             String ID = txt_Buscar.getText().trim();
-            
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
->>>>>>> RamaProcesos
-            PreparedStatement pst = cn.prepareStatement("update Cliente set Codigo_Cliente = ?,DPI_Cliente = ?, Nombre_Cliente = ?,Apellido_Cliente = ?,Telefono_Cliente = ?,Correo_Cliente = ?,Codigo_Empleado =? where Codigo_Cliente = " + ID);
-            
+
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
+            PreparedStatement pst = cn.prepareStatement("update Cliente set Codigo_Cliente = ?,DPI_Cliente = ?, Nombre_Cliente = ?,Apellido_Cliente = ?,Telefono_Cliente = ?,Correo_Cliente = ?, Cargo_Cliente = ?,Estado_Tarjeta_Cliente = ?, Codigo_Empleado =?, Bono_Cliente=? where Codigo_Cliente = " + ID);
+
             pst.setString(1, txt_Codigo.getText().trim());
             pst.setString(2, txt_DPI.getText().trim());
             pst.setString(3, txt_Nombre.getText().trim());
             pst.setString(4, txt_Apellido.getText().trim());
             pst.setString(5, txt_Telefono.getText().trim());
             pst.setString(6, txt_Correo.getText().trim());
-            pst.setString(7, txt_estadotarjeta.getText().trim());
+            pst.setString(7, txt_cargo.getText().trim());
+            pst.setString(8, txt_estadotarjeta.getText().trim());
+            pst.setString(9, txt_Codigo_Empleado.getText().trim());
+            pst.setString(10, txt_Bono.getText().trim());
             pst.executeUpdate();
-            
+
             label_status.setText("Modificación exitosa.");
-            
-        } catch (Exception e) 
-        {
-            
+
+        } catch (Exception e) {
+
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        
-            try
-            {
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
->>>>>>> RamaProcesos
+
+        try {
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("select * from Cliente where Codigo_Cliente = ?");
             pst.setString(1, txt_Buscar.getText().trim());
-            
+
             ResultSet rs = pst.executeQuery();
-            
-            if(rs.next())
-            {
+
+            if (rs.next()) {
                 txt_Codigo.setText(rs.getString("Codigo_Cliente"));
                 txt_DPI.setText(rs.getString("DPI_Cliente"));
                 txt_Nombre.setText(rs.getString("Nombre_Cliente"));
                 txt_Apellido.setText(rs.getString("Apellido_Cliente"));
                 txt_Telefono.setText(rs.getString("Telefono_Cliente"));
                 txt_Correo.setText(rs.getString("Correo_Cliente"));
-                txt_estadotarjeta.setText(rs.getString("Codigo_Empleado"));
-            } else 
-            {
+                txt_cargo.setText(rs.getString("Cargo_Cliente"));
+                txt_estadotarjeta.setText(rs.getString("Estado_Tarjeta_Cliente"));
+                txt_Codigo_Empleado.setText(rs.getString("Codigo_Empleado"));
+                txt_Bono.setText(rs.getString("Bono_Cliente"));
+            } else {
                 JOptionPane.showMessageDialog(null, "Cliente no registrado.");
             }
-            
-        }catch (Exception e){
-            
+
+        } catch (Exception e) {
+
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
-        try 
-        {
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
->>>>>>> RamaProcesos
+
+        try {
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("delete from Cliente where Codigo_Cliente = ?");
-            
+
             pst.setString(1, txt_Buscar.getText().trim());
             pst.executeUpdate();
-            
+
             txt_Codigo.setText("");
             txt_DPI.setText("");
             txt_Nombre.setText("");
             txt_Apellido.setText("");
             txt_Telefono.setText("");
             txt_Correo.setText("");
+            txt_cargo.setText("");
             txt_estadotarjeta.setText("");
-            
+            txt_Codigo_Empleado.setText("");
+            txt_Bono.setText("");
+
             label_status.setText("Registro eliminado.");
-            
+
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -392,6 +399,10 @@ public class Mantenimiento_Clientes extends javax.swing.JInternalFrame {
     private void txt_Codigo_EmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Codigo_EmpleadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_Codigo_EmpleadoActionPerformed
+
+    private void txt_BonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_BonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BonoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -401,6 +412,7 @@ public class Mantenimiento_Clientes extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -411,6 +423,7 @@ public class Mantenimiento_Clientes extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel label_status;
     private javax.swing.JTextField txt_Apellido;
+    private javax.swing.JTextField txt_Bono;
     private javax.swing.JTextField txt_Buscar;
     private javax.swing.JTextField txt_Codigo;
     private javax.swing.JTextField txt_Codigo_Empleado;

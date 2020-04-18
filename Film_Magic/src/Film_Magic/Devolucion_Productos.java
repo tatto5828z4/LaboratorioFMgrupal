@@ -5,6 +5,7 @@
  */
 package Film_Magic;
 //import Sistema_FilmMagic.Catalogos.*;
+
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -347,15 +348,11 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
         //buscar Datos
 
         try {
-<<<<<<< HEAD
-            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "admin");
-=======
-            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "jorgito5828H");
->>>>>>> RamaProcesos
-            PreparedStatement pst= cn.prepareStatement("select * from Renta where Codigo_Renta= ?");
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
+            PreparedStatement pst = cn.prepareStatement("select * from Renta where Codigo_Renta= ?");
 
             pst.setString(1, txt_buscar.getText().trim());
-            ResultSet rs= pst.executeQuery();
+            ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
                 txt_idrenta.setText(rs.getString("Codigo_Renta"));
@@ -364,10 +361,10 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
                 txt_idrenta2.setText(rs.getString("Codigo_Renta"));
                 txt_idcliente.setText(rs.getString("Codigo_Cliente"));
                 txt_idproducto.setText(rs.getString("Codigo_Producto"));
-               
 
-            }else
-            JOptionPane.showMessageDialog(null, "Registro no Encontrado.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Registro no Encontrado.");
+            }
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -375,12 +372,8 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //insertar
         try {
-<<<<<<< HEAD
-            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "admin");
-=======
-            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "jorgito5828H");
->>>>>>> RamaProcesos
-            PreparedStatement pst= cn.prepareStatement("insert into Devolucion values(?,?,?,?)");
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
+            PreparedStatement pst = cn.prepareStatement("insert into Devolucion values(?,?,?,?)");
 
             pst.setString(1, txt_iddevolucion.getText().trim());
             pst.setString(2, txt_idrenta2.getText().trim());
@@ -402,16 +395,11 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Modificar datos
         try {
-            String ID= txt_buscar.getText().trim();
+            String ID = txt_buscar.getText().trim();
 
-<<<<<<< HEAD
-            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "admin");
-=======
-            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "jorgito5828H");
->>>>>>> RamaProcesos
-            PreparedStatement pst= cn.prepareStatement("update Devolucion set ID_Devolucion=?, Codigo_Renta =?, Fecha_Actual=?, Cargo=? where ID_Devolucion= "+ID);
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
+            PreparedStatement pst = cn.prepareStatement("update Devolucion set ID_Devolucion=?, Codigo_Renta =?, Fecha_Actual=?, Cargo=? where ID_Devolucion= " + ID);
 
-            
             pst.setString(1, txt_iddevolucion.getText().trim());
             pst.setString(2, txt_idrenta2.getText().trim());
             pst.setString(3, txt_fechaactual.getText().trim());
@@ -428,12 +416,8 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //Eliminar
         try {
-<<<<<<< HEAD
-            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "admin");
-=======
-            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "jorgito5828H");
->>>>>>> RamaProcesos
-            PreparedStatement pst= cn.prepareStatement("delete from Devolucion where ID_Devolucion=?");
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
+            PreparedStatement pst = cn.prepareStatement("delete from Devolucion where ID_Devolucion=?");
 
             pst.setString(1, txt_buscar.getText().trim());
             pst.executeUpdate();
@@ -444,7 +428,7 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
             txt_cargo.setText("");
 
             Label_status.setText("Eliminacion Exitosa.");
-        }catch(Exception e){
+        } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -452,15 +436,11 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
         //buscar Datos
 
         try {
-<<<<<<< HEAD
-            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "admin");
-=======
-            Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "jorgito5828H");
->>>>>>> RamaProcesos
-            PreparedStatement pst= cn.prepareStatement("select * from Devolucion where ID_Devolucion= ?");
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
+            PreparedStatement pst = cn.prepareStatement("select * from Devolucion where ID_Devolucion= ?");
 
             pst.setString(1, txt_buscardevolucion.getText().trim());
-            ResultSet rs= pst.executeQuery();
+            ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
                 txt_iddevolucion.setText(rs.getString("ID_Devolucion"));
@@ -468,8 +448,9 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
                 txt_fechaactual.setText(rs.getString("Fecha_Actual"));
                 txt_cargo.setText(rs.getString("Cargo"));
 
-            }else
-            JOptionPane.showMessageDialog(null, "Registro no Encontrado.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Registro no Encontrado.");
+            }
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -477,54 +458,49 @@ public class Devolucion_Productos extends javax.swing.JInternalFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // cargar el monto a cliente por exceder la fecha
         try {
-            String Fecha_Ac=null, Fecha_An = null, ID_Cliente=null, Cargo=null, Nombre_Cliente=null;
-            
-            Fecha_An=txt_fechavencimiento.getText();
-            Fecha_Ac=txt_fechaactual.getText();
-            
+            String Fecha_Ac = null, Fecha_An = null, ID_Cliente = null, Cargo = null, Nombre_Cliente = null;
+
+            Fecha_An = txt_fechavencimiento.getText();
+            Fecha_Ac = txt_fechaactual.getText();
+
             if (!Fecha_An.equals(Fecha_Ac)) {
                 //JOptionPane.showMessageDialog(null, "Las fechas no son iguales");
-                
-                
-<<<<<<< HEAD
-                Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "admin");
-=======
-                Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root", "jorgito5828H");
->>>>>>> RamaProcesos
-                PreparedStatement pst= cn.prepareStatement("select Cargo_Cliente from Cliente where Codigo_Cliente=?");
-                PreparedStatement ps= cn.prepareStatement("select Nombre_Cliente from Cliente where Codigo_Cliente=?");
+
+                Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
+                PreparedStatement pst = cn.prepareStatement("select Cargo_Cliente from Cliente where Codigo_Cliente=?");
+                PreparedStatement ps = cn.prepareStatement("select Nombre_Cliente from Cliente where Codigo_Cliente=?");
 
                 pst.setString(1, txt_idcliente.getText().trim());
                 ps.setString(1, txt_idcliente.getText().trim());
 
-                ResultSet rs= pst.executeQuery();
+                ResultSet rs = pst.executeQuery();
 
                 if (rs.next()) {
-                    Cargo=rs.getString("Cargo_Cliente");
+                    Cargo = rs.getString("Cargo_Cliente");
                 }
-                
-                ResultSet rs2= ps.executeQuery();
+
+                ResultSet rs2 = ps.executeQuery();
                 if (rs2.next()) {
-                    Nombre_Cliente= rs2.getString("Nombre_Cliente");
+                    Nombre_Cliente = rs2.getString("Nombre_Cliente");
                 }
-                
+
                 //JOptionPane.showMessageDialog(null, "El cargo es: "+Cargo);
-                
                 //actualizando la tabla del cliente con el ID
-                ID_Cliente=txt_idcliente.getText().trim();
-                
-                PreparedStatement pst2= cn.prepareStatement("update Cliente set Cargo_Cliente=? where Codigo_Cliente= "+ID_Cliente);
-            
+                ID_Cliente = txt_idcliente.getText().trim();
+
+                PreparedStatement pst2 = cn.prepareStatement("update Cliente set Cargo_Cliente=? where Codigo_Cliente= " + ID_Cliente);
+
                 pst2.setString(1, txt_cargo.getText().trim());
                 pst2.executeUpdate();
-                
-                JOptionPane.showMessageDialog(null, "Se actualizo al cliente: "+Nombre_Cliente+"\nEl monto de: "+txt_cargo.getText().trim());
-                
-            }else
+
+                JOptionPane.showMessageDialog(null, "Se actualizo al cliente: " + Nombre_Cliente + "\nEl monto de: " + txt_cargo.getText().trim());
+
+            } else {
                 JOptionPane.showMessageDialog(null, "Las fechas son iguales");
-            
+            }
+
         } catch (Exception e) {
-        
+
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 

@@ -15,10 +15,11 @@ import javax.swing.JOptionPane;
  *
  * @author Langas
  */
-public class Mantenimiento_Productos extends javax.swing.JInternalFrame 
-{
+public class Mantenimiento_Productos extends javax.swing.JInternalFrame {
+
     public static float SumaS;
-    public static float Total=0;
+    public static float Total = 0;
+
     /**
      * Creates new form Mantenimiento_Productos
      */
@@ -215,56 +216,45 @@ public class Mantenimiento_Productos extends javax.swing.JInternalFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-                try        
-        {
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","jorgito5828H");
->>>>>>> RamaProcesos
+
+        try {
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("insert into Producto values(?,?,?,?,?,?)");
-            
+
             pst.setString(1, txt_Codigo.getText().trim());
             pst.setString(2, txt_Nombre.getText().trim());
             pst.setString(3, txt_Precio.getText().trim());
             SumaS = Float.parseFloat(txt_Precio.getText());
-            Total = Total + SumaS; 
-   
+            Total = Total + SumaS;
+
             pst.setString(4, txt_Tipo.getText().trim());
             pst.setString(5, txt_Existencias.getText().trim());
             pst.setString(6, txt_Codigo_Autor.getText().trim());
             pst.executeUpdate();
-            
+
             txt_Codigo.setText("");
             txt_Nombre.setText("");
             txt_Precio.setText("");
             txt_Tipo.setText("");
             txt_Existencias.setText("");
             txt_Codigo_Autor.setText("");
-            
+
             label_status.setText("Registrado.");
-            
-        }catch (Exception e)
-        {
-            
+
+        } catch (Exception e) {
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-         try
-        {
+
+        try {
             String ID = txt_Buscar.getText().trim();
-            
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
->>>>>>> RamaProcesos
+
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("update Producto set Codigo_Producto = ?,Nombre_Producto = ?, Precio_Producto = ?,Tipo_Producto = ?,Existencias_Producto = ?,Codigo_Autor = ? where Codigo_Producto = " + ID);
-            
+
             pst.setString(1, txt_Codigo.getText().trim());
             pst.setString(2, txt_Nombre.getText().trim());
             pst.setString(3, txt_Precio.getText().trim());
@@ -272,72 +262,59 @@ public class Mantenimiento_Productos extends javax.swing.JInternalFrame
             pst.setString(5, txt_Existencias.getText().trim());
             pst.setString(6, txt_Codigo_Autor.getText().trim());
             pst.executeUpdate();
-            
+
             label_status.setText("Modificación exitosa.");
-            
-        } catch (Exception e) 
-        {
-            
+
+        } catch (Exception e) {
+
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        
-            try
-            {
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
->>>>>>> RamaProcesos
+
+        try {
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("select * from Producto where Codigo_Producto = ?");
             pst.setString(1, txt_Buscar.getText().trim());
-            
+
             ResultSet rs = pst.executeQuery();
-            
-            if(rs.next())
-            {
+
+            if (rs.next()) {
                 txt_Codigo.setText(rs.getString("Codigo_Producto"));
                 txt_Nombre.setText(rs.getString("Nombre_Producto"));
                 txt_Precio.setText(rs.getString("Precio_Producto"));
                 txt_Tipo.setText(rs.getString("Tipo_Producto"));
                 txt_Existencias.setText(rs.getString("Existencias_Producto"));
                 txt_Codigo_Autor.setText(rs.getString("Codigo_Autor"));
-            } else 
-            {
+            } else {
                 JOptionPane.showMessageDialog(null, "Producto no registrado.");
             }
-            
-        }catch (Exception e){
-            
+
+        } catch (Exception e) {
+
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
-                try 
-        {
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
->>>>>>> RamaProcesos
+
+        try {
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("delete from Producto where Codigo_Producto = ?");
-            
+
             pst.setString(1, txt_Buscar.getText().trim());
             pst.executeUpdate();
-            
+
             txt_Codigo.setText("");
             txt_Nombre.setText("");
             txt_Precio.setText("");
             txt_Tipo.setText("");
             txt_Existencias.setText("");
             txt_Codigo_Autor.setText("");
-            
+
             label_status.setText("Registro eliminado.");
-            
+
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton3ActionPerformed

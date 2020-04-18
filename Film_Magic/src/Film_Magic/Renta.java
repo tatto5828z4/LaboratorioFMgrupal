@@ -207,118 +207,96 @@ public class Renta extends javax.swing.JInternalFrame {
 
     private void jButton_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarActionPerformed
         // TODO add your handling code here:
-        
-        try        
-        {
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","jorgito5828H");
->>>>>>> RamaProcesos
+
+        try {
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("insert into Renta values(?,?,?,?,?)");
-            
+
             pst.setString(1, txt_Codigo_Renta.getText().trim());
             pst.setString(2, txt_Fecha_Renta.getText().trim());
             pst.setString(3, txt_Fecha_Vencimiento.getText().trim());
             pst.setString(4, txt_Codigo_Cliente.getText().trim());
             pst.setString(5, txt_Codigo_Producto.getText().trim());
             pst.executeUpdate();
-            
+
             txt_Codigo_Renta.setText("");
             txt_Fecha_Renta.setText("");
             txt_Fecha_Vencimiento.setText("");
             txt_Codigo_Cliente.setText("");
             txt_Codigo_Producto.setText("");
             label_status.setText("Registrado.");
-            
-        }catch (Exception e)
-        {
-            
+
+        } catch (Exception e) {
+ e.printStackTrace();
         }
     }//GEN-LAST:event_jButton_RegistrarActionPerformed
 
     private void jButton_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ModificarActionPerformed
         // TODO add your handling code here:
-        
-    try {
+
+        try {
             String ID = txt_Buscar.getText().trim();
-            
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
->>>>>>> RamaProcesos
+
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("update Renta set Codigo_Renta = ?,Fecha_Renta = ?, Fecha_Vencimiento = ?,Codigo_Cliente = ?,Codigo_Producto = ? where Codigo_Renta = " + ID);
-            
+
             pst.setString(1, txt_Codigo_Renta.getText().trim());
             pst.setString(2, txt_Fecha_Renta.getText().trim());
             pst.setString(3, txt_Fecha_Vencimiento.getText().trim());
             pst.setString(4, txt_Codigo_Cliente.getText().trim());
             pst.setString(5, txt_Codigo_Producto.getText().trim());
             pst.executeUpdate();
-            
+
             label_status.setText("Modificación exitosa.");
-            
-        } catch (Exception e) 
-        {
-            
+
+        } catch (Exception e) {
+
         }
     }//GEN-LAST:event_jButton_ModificarActionPerformed
 
     private void jButton_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BuscarActionPerformed
         // TODO add your handling code here:
-        
-                try{
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
->>>>>>> RamaProcesos
+
+        try {
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("select * from Renta where Codigo_Renta = ?");
             pst.setString(1, txt_Buscar.getText().trim());
-            
+
             ResultSet rs = pst.executeQuery();
-            
-            if(rs.next())
-            {
+
+            if (rs.next()) {
                 txt_Codigo_Renta.setText(rs.getString("Codigo_Renta"));
                 txt_Fecha_Renta.setText(rs.getString("Fecha_Renta"));
                 txt_Fecha_Vencimiento.setText(rs.getString("Fecha_Vencimiento"));
                 txt_Codigo_Cliente.setText(rs.getString("Codigo_Cliente"));
                 txt_Codigo_Producto.setText(rs.getString("Codigo_Producto"));
-            } else 
-            {
+            } else {
                 JOptionPane.showMessageDialog(null, "Renta no registrado.");
             }
-            
-        }catch (Exception e){
-            
+
+        } catch (Exception e) {
+
         }
     }//GEN-LAST:event_jButton_BuscarActionPerformed
 
     private void jButton_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EliminarActionPerformed
         // TODO add your handling code here:
-        
-        try 
-        {
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
->>>>>>> RamaProcesos
+
+        try {
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("delete from Renta where Codigo_Renta = ?");
-            
+
             pst.setString(1, txt_Buscar.getText().trim());
             pst.executeUpdate();
-            
+
             txt_Codigo_Renta.setText("");
             txt_Fecha_Renta.setText("");
             txt_Fecha_Vencimiento.setText("");
             txt_Codigo_Cliente.setText("");
             txt_Codigo_Producto.setText("");
-            
+
             label_status.setText("Registro eliminado.");
-            
+
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton_EliminarActionPerformed
