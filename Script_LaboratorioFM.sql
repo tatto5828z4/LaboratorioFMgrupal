@@ -26,8 +26,9 @@ create table Cliente
   -- nuevo
   Cargo_Cliente float,
   Estado_Tarjeta_Cliente char(1) not null,
-
-  Codigo_Empleado int not null,
+ 
+   Codigo_Empleado int not null,
+   Bono_Cliente int not null,
   foreign key (Codigo_Empleado) references Empleado(Codigo_Empleado)
   
    
@@ -47,7 +48,6 @@ create table Producto
   Precio_Producto FLOAT not null,
   Tipo_Producto varchar(45) not null,
   Existencias_Producto int not null,
-  
   Codigo_Autor int,
   foreign key(Codigo_Autor) references Autor(Codigo_Autor)
 )Engine= InnoDB, default char set= latin1;
@@ -94,3 +94,6 @@ create table Devolucion(
     
     foreign key (Codigo_Renta)  references Renta(Codigo_Renta)
 )engine=InnoDB;
+ select *from cliente;
+  select *from producto;
+    select *from renta;

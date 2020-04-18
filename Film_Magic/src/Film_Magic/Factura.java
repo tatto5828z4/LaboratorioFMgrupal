@@ -9,24 +9,34 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Properties;
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+import javax.mail.BodyPart;
+import javax.mail.Message;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 /**
  *
  * @author Langas
  */
 public class Factura extends javax.swing.JInternalFrame {
-
+String Correo;
     /**
      * Creates new form Factura
      */
-    
-    
     public Factura() {
         initComponents();
-        jLabel_Cargo.setText(Float.toString(FilmMagic_Principal.valor));        
+        jLabel_Cargo.setText(Float.toString(FilmMagic_Principal.valor));
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -248,18 +258,11 @@ public class Factura extends javax.swing.JInternalFrame {
 
     private void jButton_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarActionPerformed
         // TODO add your handling code here:
-        
-        try        
-        {
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic","root","jorgito5828H");
->>>>>>> RamaProcesos
+
+        try {
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("insert into Factura values(?,?,?,?,?,?)");
-            
-          
-            
+
             pst.setString(1, txt_Codigo_Factura.getText().trim());
             pst.setString(2, txt_Fecha.getText().trim());
             pst.setString(3, txt_Forma_Pago.getText().trim());
@@ -267,6 +270,10 @@ public class Factura extends javax.swing.JInternalFrame {
             pst.setString(5, txt_Codigo_Cliente.getText().trim());
             pst.setString(6, txt_Codigo_Renta.getText().trim());
             pst.executeUpdate();
+           Consultar(txt_Codigo_Cliente.getText().trim());
+           if(FilmMagic_Principal.valor > 50){
+               EnviarCorreo(Correo);
+           }
             
             txt_Codigo_Factura.setText("");
             txt_Fecha.setText("");
@@ -274,60 +281,97 @@ public class Factura extends javax.swing.JInternalFrame {
             txt_Codigo_Cliente.setText("");
             txt_Codigo_Renta.setText("");
             label_status.setText("Registrado.");
-            
-        }catch (Exception e)
-        {
-               e.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }//GEN-LAST:event_jButton_RegistrarActionPerformed
+public void EnviarCorreo(String Mail){
+      try {
+                        Properties correo = new Properties();
+                        correo.put("mail.smtp.host", "smtp.gmail.com");
+                        correo.setProperty("mail.smtp.starttls.enable", "true");
+                        correo.setProperty("mail.smtp.port", "587");
+                        correo.setProperty("mail.smtp.user", "grupo2programacioniii@gmail.com");
+                        correo.setProperty("mail.smtp.auth", "true");
+                        Session sesion = Session.getDefaultInstance(correo, null);
+                        BodyPart texto = new MimeBodyPart();
+                        texto.setText("Ah obtenido Cupones, de bono para rentas gratuitas, gracias por preferirnos");
+                        BodyPart ImagenAdjunta = new MimeBodyPart();
+                        ImagenAdjunta.setDataHandler(new DataHandler(new FileDataSource("1.png")));
+                        ImagenAdjunta.setFileName("1.png");
+                        MimeMultipart m = new MimeMultipart();
+                        m.addBodyPart(texto);
+                        m.addBodyPart(ImagenAdjunta);
+                        MimeMessage mensaje = new MimeMessage(sesion);
+                        mensaje.setFrom(new InternetAddress("grupo2programacioniii@gmail.com"));
+                        mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(Mail));
+                        mensaje.setSubject("Cupones - Proyecto Film Magic");
+                        mensaje.setContent(m);
+                        Transport t = sesion.getTransport("smtp");
+                        t.connect("grupo2programacioniii@gmail.com", "jlhgdhvhhekkovcg");
+                        t.sendMessage(mensaje, mensaje.getAllRecipients());
+                        t.close();
+                        JOptionPane.showMessageDialog(null, "ENVIDADO A SU CORREO CON EXITO", "EXITO", JOptionPane.INFORMATION_MESSAGE);
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "Error" + e);
 
+                    }
+}
+public void Consultar(String Cliente){
+    try {
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
+            PreparedStatement pst = cn.prepareStatement("select * from Cliente where Codigo_Cliente = ?");
+            pst.setString(1, txt_Codigo_Cliente.getText().trim());
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                Correo = rs.getString("Correo_Cliente");
+            } else {
+                JOptionPane.showMessageDialog(null, "Cliente no registrado.");
+            }
+
+        } catch (Exception e) {
+
+        }
+}
     private void jButton_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BuscarActionPerformed
         // TODO add your handling code here:
-        
-            try{
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
->>>>>>> RamaProcesos
+
+        try {
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("select * from Factura where Codigo_Factura = ?");
             pst.setString(1, txt_Buscar.getText().trim());
-            
+
             ResultSet rs = pst.executeQuery();
-            
-            if(rs.next())
-            {
+
+            if (rs.next()) {
                 txt_Codigo_Factura.setText(rs.getString("Codigo_Factura"));
                 txt_Fecha.setText(rs.getString("Fecha"));
                 txt_Forma_Pago.setText(rs.getString("Forma_Pago"));
                 jLabel_Cargo.setText(rs.getString("Total"));
                 txt_Codigo_Cliente.setText(rs.getString("Codigo_Cliente"));
                 txt_Codigo_Renta.setText(rs.getString("Codigo_Renta"));
-            } else 
-            {
+            } else {
                 JOptionPane.showMessageDialog(null, "Factura no registrado.");
             }
-           }catch (Exception e)
-           {
-            
-           }
-            
+        } catch (Exception e) {
+
+        }
+
 
     }//GEN-LAST:event_jButton_BuscarActionPerformed
 
     private void jButton_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ModificarActionPerformed
         // TODO add your handling code here:
-        
+
         try {
             String ID = txt_Buscar.getText().trim();
-            
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
->>>>>>> RamaProcesos
+
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("update Factura set Codigo_Factura = ?,Fecha = ?, Forma_Pago = ?,Total = ?,Codigo_Cliente = ? where Codigo_Cliente = " + ID);
-            
+
             pst.setString(1, txt_Codigo_Factura.getText().trim());
             pst.setString(2, txt_Fecha.getText().trim());
             pst.setString(3, txt_Forma_Pago.getText().trim());
@@ -335,39 +379,33 @@ public class Factura extends javax.swing.JInternalFrame {
             pst.setString(5, txt_Codigo_Cliente.getText().trim());
             pst.setString(5, txt_Codigo_Renta.getText().trim());
             pst.executeUpdate();
-            
+
             label_status.setText("Modificación exitosa.");
-            
-        } catch (Exception e) 
-        {
-            
+
+        } catch (Exception e) {
+
         }
     }//GEN-LAST:event_jButton_ModificarActionPerformed
 
     private void jButton_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EliminarActionPerformed
         // TODO add your handling code here:
-        
-        try 
-        {
-<<<<<<< HEAD
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "admin");
-=======
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
->>>>>>> RamaProcesos
+
+        try {
+            Connection cn = DriverManager.getConnection(FilmMagic_Principal.Base_de_Datos, FilmMagic_Principal.Usuario, FilmMagic_Principal.Contraseña);
             PreparedStatement pst = cn.prepareStatement("delete from Factura where Codigo_Factura = ?");
-            
+
             pst.setString(1, txt_Buscar.getText().trim());
             pst.executeUpdate();
-            
+
             txt_Codigo_Factura.setText("");
             txt_Fecha.setText("");
             txt_Forma_Pago.setText("");
             jLabel_Cargo.setText("");
             txt_Codigo_Cliente.setText("");
             txt_Codigo_Renta.setText("");
-            
+
             label_status.setText("Registro eliminado.");
-            
+
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton_EliminarActionPerformed
@@ -375,30 +413,27 @@ public class Factura extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String verifica = new String();
-        float total12 =0;
-        float suma =0;
-        try
-            {
+        float total12 = 0;
+        float suma = 0;
+        try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/FilmMagic", "root", "jorgito5828H");
             PreparedStatement pst = cn.prepareStatement("select * from Cliente where Codigo_Cliente = ?");
             pst.setString(1, txt_Codigo_Cliente.getText().trim());
-            
+
             ResultSet rs = pst.executeQuery();
-            
-            if(rs.next())
-            {
+
+            if (rs.next()) {
                 verifica = (rs.getString("Cargo_Cliente"));
-                jLabel_verifica.setText("El cliente tiene el siguiente cargo: " +verifica);
+                jLabel_verifica.setText("El cliente tiene el siguiente cargo: " + verifica);
                 suma = Float.parseFloat(verifica);
                 total12 = (FilmMagic_Principal.valor) + suma;
                 jLabel_Cargo.setText(Float.toString(total12));
-            } else 
-            {
+            } else {
                 JOptionPane.showMessageDialog(null, "Cliente no registrado.");
             }
-            
-        }catch (Exception e){
-            
+
+        } catch (Exception e) {
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

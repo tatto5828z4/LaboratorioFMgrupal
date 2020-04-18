@@ -36,43 +36,6 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-<<<<<<< HEAD
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_Fecha" min="-2" pref="85" max="-2" attributes="0"/>
-                                  <Component id="txt_Forma_Pago" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_Codigo_Factura" alignment="1" min="-2" pref="85" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="jLabel_Total" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                              <Component id="txt_Codigo_Renta" min="-2" pref="85" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
-                              <Component id="jButton_Registrar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton_Modificar" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                              <Component id="txt_Codigo_Cliente" min="-2" pref="85" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-=======
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
@@ -128,35 +91,16 @@
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="jButton_Buscar" min="-2" max="-2" attributes="0"/>
                                           </Group>
->>>>>>> RamaProcesos
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                              <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                                      <Component id="jButton_Eliminar" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="txt_Buscar" min="-2" pref="85" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jButton_Buscar" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-=======
                               <Component id="jLabel_cargo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel_verifica" alignment="0" min="-2" max="-2" attributes="0"/>
->>>>>>> RamaProcesos
                       </Group>
                       <EmptySpace min="0" pref="134" max="32767" attributes="0"/>
                   </Group>
@@ -227,9 +171,6 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                      <Component id="jLabel_Total" min="-2" pref="31" max="-2" attributes="0"/>
-=======
                       <Component id="jLabel_Cargo" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
@@ -237,7 +178,6 @@
                       <Component id="jLabel_cargo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jLabel_verifica" min="-2" max="-2" attributes="0"/>
->>>>>>> RamaProcesos
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -326,10 +266,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_Codigo_Cliente">
-<<<<<<< HEAD
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_Total">
-=======
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Codigo_ClienteActionPerformed"/>
       </Events>
@@ -347,7 +283,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_verifica">
->>>>>>> RamaProcesos
     </Component>
   </SubComponents>
 </Form>

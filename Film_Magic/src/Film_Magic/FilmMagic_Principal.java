@@ -10,10 +10,14 @@ package Film_Magic;
  * @author Langas
  */
 public class FilmMagic_Principal extends javax.swing.JFrame {
-public static float valor;
-    /**
-     * Creates new form FilmMagic_Principal
-     */
+
+    public static float valor;
+
+    
+   public static String Base_de_Datos = "jdbc:mysql://localhost/FilmMagic";
+    public static String Usuario = "root";
+    public static String Contraseña = "";
+    
     
     private Mantenimiento_Empleados ventana_Registro_Empleado;
     private Mantenimiento_Clientes ventana_Registro_Cliente;
@@ -22,7 +26,7 @@ public static float valor;
     private Renta ventana_Registro_Renta;
     private Factura ventana_Registro_Factura;
     private Devolucion_Productos ventana_Devolucion;
-    
+
     public FilmMagic_Principal() {
         initComponents();
     }
@@ -163,7 +167,7 @@ public static float valor;
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        
+
         ventana_Registro_Cliente = new Mantenimiento_Clientes();
         jDesktopPane1.add(ventana_Registro_Cliente);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -176,20 +180,20 @@ public static float valor;
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        
+
         ventana_Registro_Producto = new Mantenimiento_Productos();
         jDesktopPane1.add(ventana_Registro_Producto);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-        
+
         ventana_Registro_Renta = new Renta();
         jDesktopPane1.add(ventana_Registro_Renta);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        valor =  Mantenimiento_Productos.Total;
+        valor = Mantenimiento_Productos.Total;
         ventana_Registro_Factura = new Factura();
         jDesktopPane1.add(ventana_Registro_Factura);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
@@ -200,7 +204,7 @@ public static float valor;
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        ventana_Devolucion= new Devolucion_Productos();
+        ventana_Devolucion = new Devolucion_Productos();
         jDesktopPane1.add(ventana_Devolucion);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
